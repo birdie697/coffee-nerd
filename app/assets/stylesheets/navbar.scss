@@ -1,0 +1,31 @@
+.breadcrumbs > * {
+ font-family: 'Indie Flower', cursive;
+ font-size: 1em;
+ padding: 1em;
+}
+
+.supportingLinks > * {
+  font-family: 'Indie Flower', cursive;
+  margin: 7%;
+  background-color: white;
+  border-radius: 40px;
+  padding: 20px;
+}
+
+.coffeeBeanBackground {
+  background: url(https://www.dropbox.com/s/f6rw2uqwltw31wu/Coffee-Beans-Background-Original.jpg) no-repeat center center fixed;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: lighten;
+}
+
+.mainPage {
+  background-color: white;
+}
+
+body {
+  background: url(https://www.dropbox.com/s/f6rw2uqwltw31wu/Coffee-Beans-Background-Original.jpg?raw=1) no-repeat center center fixed;
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: lighten;
+}
