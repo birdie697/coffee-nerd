@@ -4,12 +4,20 @@
  padding: 1em;
 }
 
-.supportingLinks > * {
+.supportingLinks {
+  background-color: white;
   font-family: 'Indie Flower', cursive;
   margin: 7%;
-  background-color: white;
   border-radius: 40px;
   padding: 20px;
+}
+
+.supportingLinks h1 {
+  font-family: 'Indie Flower', cursive;
+}
+
+.app-name {
+  font-family: 'Indie Flower', cursive;
 }
 
 .coffeeBeanBackground {
@@ -21,7 +29,32 @@
 
 .mainPage {
   background-color: white;
+  font-family: 'Indie Flower', cursive;
+  background-color: white;
+  border-radius: 40px;
+  padding: 20px;
+  margin:  7%;
 }
+
+.mainPage h1 {
+  font-family: 'Indie Flower', cursive;
+  text-align: center;
+}
+
+.devisePage {
+  background-color: white;
+  font-family: 'Indie Flower', cursive;
+  background-color: white;
+  border-radius: 40px;
+  width:  50%;
+  padding: 20px;
+  margin:  7%;
+}
+
+.devisePage h2 {
+  font-family: 'Indie Flower', cursive;
+}
+
 
 body {
   background: url(https://www.dropbox.com/s/f6rw2uqwltw31wu/Coffee-Beans-Background-Original.jpg?raw=1) no-repeat center center fixed;
