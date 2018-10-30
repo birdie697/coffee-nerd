@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 const Hello = (props) => {
   return(
     <div className="mainPage">
-      <h1> Hello from react router </h1>
+      <h1> Sign Up, Sign In or Look Around </h1>
     </div>
   )
 }
