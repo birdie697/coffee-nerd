@@ -1,4 +1,4 @@
-<div class='devisePage'>
+<div class="devisePage">
   <h2>Sign up</h2>
 
 
@@ -7,7 +7,9 @@
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="emailEntry">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
     </div>
 
     <div class="field">
