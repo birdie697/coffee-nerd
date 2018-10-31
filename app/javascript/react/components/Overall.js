@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 
 const Overall = (props) => {
   return(
-    <div className="coffeeBeanBackground">
     <div className="supportingLinks">
       <h1> Why Use Coffee Nerd? </h1>
       <div>
@@ -16,7 +15,6 @@ const Overall = (props) => {
         <p>
           This app offers you, the coffee enthusiast, the ability to select a brewing method, track a coffee, and input the number of servings.  The app will in turn provide you with the amount of water to use, the amount of coffee to use and the desired grind size.
         </p>
-      </div>
       </div>
     </div>
   )

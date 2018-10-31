@@ -20,12 +20,18 @@
   font-family: 'Indie Flower', cursive;
 }
 
-.coffeeBeanBackground {
-  background: url(https://www.dropbox.com/s/f6rw2uqwltw31wu/Coffee-Beans-Background-Original.jpg) no-repeat center center fixed;
-  background-position: center;
-  background-size: cover;
-  background-blend-mode: lighten;
+.flash-notice {
+  background-color: #BD895D;
+  font-family: 'Indie Flower', cursive;
+
 }
+
+// .coffeeBeanBackground {
+//   background: url(https://www.dropbox.com/s/f6rw2uqwltw31wu/Coffee-Beans-Background-Original.jpg) no-repeat center center fixed;
+//   background-position: center;
+//   background-size: cover;
+//   background-blend-mode: lighten;
+// }
 
 .mainPage {
   background-color: white;
@@ -33,7 +39,8 @@
   background-color: white;
   border-radius: 40px;
   padding: 20px;
-  margin:  7%;
+  width:  50%;
+  margin: 10% 25%;
 }
 
 .mainPage h1 {
@@ -41,18 +48,38 @@
   text-align: center;
 }
 
-.devisePage {
+.selectionTile {
   background-color: white;
   font-family: 'Indie Flower', cursive;
   background-color: white;
   border-radius: 40px;
+  padding: 20px;
+  width:  30%;
+  margin: 5% 35%;
+}
+
+.selectionTile h1 {
+  font-family: 'Indie Flower', cursive;
+  text-align: center;
+}
+
+.devisePage {
+  background-color: white;
+  font-family: 'Indie Flower', cursive;
+  border-radius: 40px;
   width:  50%;
   padding: 20px;
-  margin:  7%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 10%;
 }
 
 .devisePage h2 {
   font-family: 'Indie Flower', cursive;
+}
+
+.devisePage .emailEntry{
+  font-family: sans-serif;
 }
 
 

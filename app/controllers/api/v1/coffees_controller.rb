@@ -1,5 +1,5 @@
 class Api::V1::CoffeesController < ApplicationController
   def index
-    coffees = Coffee.all
+    render json: Coffee.order(name: :asc)
   end
 end
