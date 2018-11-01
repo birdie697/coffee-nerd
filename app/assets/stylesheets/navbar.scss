@@ -5,7 +5,7 @@
 }
 
 .supportingLinks {
-  background-color: white;
+  background-color: #FFFFFF;
   font-family: 'Indie Flower', cursive;
   margin: 7%;
   border-radius: 40px;
@@ -26,17 +26,9 @@
 
 }
 
-// .coffeeBeanBackground {
-//   background: url(https://www.dropbox.com/s/f6rw2uqwltw31wu/Coffee-Beans-Background-Original.jpg) no-repeat center center fixed;
-//   background-position: center;
-//   background-size: cover;
-//   background-blend-mode: lighten;
-// }
-
 .mainPage {
-  background-color: white;
+  background-color: #FFFFFF;
   font-family: 'Indie Flower', cursive;
-  background-color: white;
   border-radius: 40px;
   padding: 20px;
   width:  50%;
@@ -49,9 +41,8 @@
 }
 
 .selectionTile {
-  background-color: white;
+  background-color: #FFFFFF;
   font-family: 'Indie Flower', cursive;
-  background-color: white;
   border-radius: 40px;
   padding: 20px;
   width:  30%;
@@ -64,8 +55,20 @@
   text-align: center;
 }
 
+.goButton {
+  background-color: #BD895D;
+  // background-color: #F0C0A2;
+  font-family: 'Indie Flower', cursive;
+  border-radius: 40px;
+  padding: 20px;
+  width:  10%;
+  margin: 5% 45%;
+  text-align: center;
+  border: 2px solid #FFFFFF
+}
+
 .devisePage {
-  background-color: white;
+  background-color: #FFFFFF;
   font-family: 'Indie Flower', cursive;
   border-radius: 40px;
   width:  50%;

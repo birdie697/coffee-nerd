@@ -71,16 +71,23 @@ class PreparationContainer extends React.Component {
               content={this.state.selectedTechnique}
               name="technique"
               handleNewSelectedTechnique={this.handleNewSelectedTechnique}
-              />
+            />
           </div>
           <div className='selectionTile'>
-          <h3>Pick a Coffee</h3>
-            <Coffee
-              coffees={this.state.coffees}
-              content={this.state.selectedCoffee}
-              name="coffee"
-              handleNewSelectedCoffee={this.handleNewSelectedCoffee}
+            <h3>Pick a Coffee</h3>
+              <Coffee
+                coffees={this.state.coffees}
+                content={this.state.selectedCoffee}
+                name="coffee"
+                handleNewSelectedCoffee={this.handleNewSelectedCoffee}
               />
+          </div>
+          <div className='goButton'>
+            <p>Click The Empty Box</p>
+            <input type="submit" name="submit" value="" />
+          </div>
+          <div className='selectionTile'>
+            <h3>Your Results</h3>
           </div>
         </form>
       </div>
