@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_235555) do
+ActiveRecord::Schema.define(version: 2018_11_01_141523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(version: 2018_10_30_235555) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "preparations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "technique_id"
+    t.bigint "coffee_id"
+    t.integer "servings", default: 1
+    t.integer "water_amount"
+    t.integer "coffee_amount"
+    t.float "adjusted_ratio"
+    t.string "strength", default: "good"
+    t.string "adjusted_grind_size"
+    t.string "flavor", default: "good"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coffee_id"], name: "index_preparations_on_coffee_id"
+    t.index ["technique_id"], name: "index_preparations_on_technique_id"
+    t.index ["user_id"], name: "index_preparations_on_user_id"
   end
 
   create_table "techniques", force: :cascade do |t|
