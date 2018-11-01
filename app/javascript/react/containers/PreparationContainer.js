@@ -8,8 +8,20 @@ class PreparationContainer extends React.Component {
     super(props)
     this.state = {
       techniques: [],
-      coffees: []
+      coffees: [],
+      selectedTechnique: '',
+      selectedCoffee: ''
     }
+    this.handleNewSelectedTechnique = this.handleNewSelectedTechnique.bind(this)
+    this.handleNewSelectedCoffee = this.handleNewSelectedCoffee.bind(this)
+  }
+
+  handleNewSelectedTechnique(event) {
+    this.setState({ selectedTechnique: event.target.value })
+  }
+
+  handleNewSelectedCoffee(event) {
+    this.setState({ selectedCoffee: event.target.value })
   }
 
   componentDidMount(){
@@ -48,37 +60,29 @@ class PreparationContainer extends React.Component {
   }
 
   render() {
-    let techniques = this.state.techniques.map(technique => {
-      return(
-        <Technique
-          key={technique.id}
-          technique={technique.name}
-        />
-      )
-    })
-
-    let coffees = this.state.coffees.map(coffee => {
-      return(
-        <Coffee
-          key={coffee.id}
-          coffee={coffee.name}
-        />
-      )
-    })
 
     return(
       <div>
-
-
+        <form>
           <div className='selectionTile'>
-            <h1>Pick a Technique</h1>
-            {techniques}
+            <h3>Pick a Technique</h3>
+            <Technique
+              techniques={this.state.techniques}
+              content={this.state.selectedTechnique}
+              name="technique"
+              handleNewSelectedTechnique={this.handleNewSelectedTechnique}
+              />
           </div>
           <div className='selectionTile'>
-            <h1>Pick a Coffee</h1>
-            {coffees}
+          <h3>Pick a Coffee</h3>
+            <Coffee
+              coffees={this.state.coffees}
+              content={this.state.selectedCoffee}
+              name="coffee"
+              handleNewSelectedCoffee={this.handleNewSelectedCoffee}
+              />
           </div>
-
+        </form>
       </div>
     )
   }
