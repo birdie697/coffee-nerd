@@ -4,7 +4,7 @@ const Technique = props => {
 
   let techniques = props.techniques.map(technique => {
     return (
-      <option key={technique.id} value={technique.name}>{technique.name}</option>
+      <option key={technique.id} value={technique.id}>{technique.name}</option>
     )
   })
 
