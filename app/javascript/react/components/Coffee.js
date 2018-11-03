@@ -4,7 +4,7 @@ const Coffee = props => {
 
   let coffees = props.coffees.map(coffee => {
     return (
-      <option key={coffee.id} value={coffee.name}>{coffee.name}</option>
+      <option key={coffee.id} value={coffee.id}>{coffee.name}</option>
     )
   })
 

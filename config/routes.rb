@@ -5,15 +5,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :techniques, only: [:index] do
-      end
-    end
-  end
-
-  namespace :api do
-    namespace :v1 do
-      resources :coffees, only: [:index] do
-      end
+      resources :techniques, only: [:index]
+      resources :coffees, only: [:index]
+      resources :users, only: [:index]
+      resources :preparations, only: [:index]
     end
   end
 
