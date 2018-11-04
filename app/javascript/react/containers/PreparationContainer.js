@@ -37,6 +37,19 @@ class PreparationContainer extends React.Component {
 
   handlePrepFormSubmit(event) {
     event.preventDefault()
+
+    let defaultTechniqueId
+    defaultTechniqueId = this.state.techniques[0].id
+    if (this.state.selectedTechniqueId == "") {
+      this.state.selectedTechniqueId = defaultTechniqueId
+    }
+
+    let defaultCoffeeId
+    defaultCoffeeId = this.state.coffees[0].id
+    if (this.state.selectedCoffeeId == "") {
+      this.state.selectedCoffeeId = defaultCoffeeId
+    }
+
     fetch(`/api/v1/preparations/?technique=${this.state.selectedTechniqueId}&coffee=${this.state.selectedCoffeeId}&servings=${this.state.selectedServings}`)
     .then(response => {
       if (response.ok) {
@@ -99,14 +112,13 @@ class PreparationContainer extends React.Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ currentUser: body.id });
+      this.setState({ currentUserId: body.id });
     })
     .catch(error => console.error(`Error in fetch: $(error.message)`));
 
   }
 
   render() {
-
     return(
       <div>
         <form onSubmit={this.handlePrepFormSubmit}>
@@ -143,9 +155,16 @@ class PreparationContainer extends React.Component {
         </form>
         <div className='selectionTile'>
           <ResultsContainer
-            coffee={this.state.resultsPayload.coffee}
-            water={this.state.resultsPayload.water}
-            grindSize={this.state.resultsPayload.grind_size}
+            currentUserId={this.state.currentUserId}
+            servings={this.state.selectedServings}
+            techniqueName={this.state.resultsPayload.technique_name}
+            techniqueId={this.state.selectedTechniqueId}
+            coffeeName={this.state.resultsPayload.coffee_name}
+            coffeeId={this.state.selectedCoffeeId}
+            waterWeight={this.state.resultsPayload.water_weight}
+            coffeeWeight={this.state.resultsPayload.coffee_weight}
+            adjustedGrindSize={this.state.resultsPayload.adjusted_grind_size}
+            adjustedRatio={this.state.resultsPayload.adjusted_ratio}
           />
         </div>
       </div>

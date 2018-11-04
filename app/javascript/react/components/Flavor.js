@@ -8,11 +8,11 @@ const Flavor = props => {
         name={props.name}
         type='text'
         value={props.content}
-        onChange={props.ratedFlavor}
+        onChange={props.handleRatedFlavor}
       >
+        <option value="Underdeveloped">Underdeveloped</option>
         <option value="Good">Good</option>
         <option value="Bitter">Bitter</option>
-        <option value="Underdeveloped">Underdeveloped</option>
       </select>
     </label>
   )

@@ -8,11 +8,11 @@ const Strength = props => {
         name={props.name}
         type='text'
         value={props.content}
-        onChange={props.ratedStrength}
+        onChange={props.handleRatedStrength}
       >
+        <option value="Weak">Weak</option>
         <option value="Good">Good</option>
         <option value="Strong">Strong</option>
-        <option value="Weak">Weak</option>
       </select>
     </label>
   )
