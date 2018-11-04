@@ -16,6 +16,7 @@ const Coffee = props => {
         value={props.content}
         onChange={props.handleNewSelectedCoffee}
       >
+        <option></option>
         {coffees}
       </select>
     </label>

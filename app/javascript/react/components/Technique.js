@@ -16,6 +16,7 @@ const Technique = props => {
         value={props.content}
         onChange={props.handleNewSelectedTechnique}
       >
+        <option></option>
         {techniques}
       </select>
     </label>

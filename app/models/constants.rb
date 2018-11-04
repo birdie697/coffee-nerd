@@ -22,21 +22,24 @@ module Constants
 
   def adjust_grind_for_bitter(last_grind)
     index = GRIND_SIZE.index(last_grind)
-    if index = GRIND_SIZE.count
+    if index == GRIND_SIZE.count
       new_grind = GRIND_SIZE[index]
     else
       new_grind = GRIND_SIZE[index+1]
     end
     return new_grind
   end
+  module_function :adjust_grind_for_bitter
 
   def adjust_grind_for_underdeveloped(last_grind)
     index = GRIND_SIZE.index(last_grind)
-    if index = 0
+    if index == 0
       new_grind = GRIND_SIZE[index]
     else
       new_grind = GRIND_SIZE[index-1]
     end
+    return new_grind
   end
+  module_function :adjust_grind_for_underdeveloped
 
 end
