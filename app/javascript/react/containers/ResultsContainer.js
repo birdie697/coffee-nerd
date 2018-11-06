@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import { Link } from 'react-router';
 import Strength from '../components/Strength'
@@ -32,7 +29,7 @@ class ResultsContainer extends React.Component {
       user_id:  this.props.currentUserId,
       technique_id: this.props.techniqueId,
       coffee_id: this.props.coffeeId,
-      servings: this.props.selectedServings,
+      servings: this.props.servings,
       water_amount: this.props.waterWeight,
       coffee_amount: this.props.coffeeWeight,
       adjusted_ratio: this.props.adjustedRatio,
@@ -40,31 +37,10 @@ class ResultsContainer extends React.Component {
       adjusted_grind_size: this.props.adjustedGrindSize,
       flavor: this.state.ratedFlavor
     }
-
-    let jsonPayload = JSON.stringify(formPayload)
-
-    fetch(`/api/v1/preparations/?strength=${this.state.ratedStrength}&flavor=${this.state.ratedFlavor}`, {
-      method: 'POST',
-      body: jsonPayload,
-      headers: {
-        'Accept':  'application/json',
-        'Content-Type': 'application/json'},
-      credentials: 'same-origin'
-    })
-    .then(response => {
-      if (response.ok) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`,
-          error = new Error(errorMessage);
-        throw(error);
-      }
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    this.props.postToPreparation(formPayload);
   }
 
   render() {
-
     return(
       <div>
         <form onSubmit={this.handleResultsFormSubmit}>
@@ -89,9 +65,9 @@ class ResultsContainer extends React.Component {
               name="flavor"
               handleRatedFlavor={this.handleRatedFlavor}
             />
-          <div>
-            <input className="secondary button form-button" type="submit" value="Save" />
-            <button className="secondary button form-button" onClick={this.handleClear} >Cancel</button>
+          <div className="centerButtons">
+            <button className="resultsButtons" type="submit" value="Save">Save</button>
+            <button className="resultsButtons" onClick={this.props.handleClear}>Cancel</button>
           </div>
         </form>
       </div>

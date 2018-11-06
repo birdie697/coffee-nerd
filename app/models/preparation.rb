@@ -1,5 +1,5 @@
 class Preparation < ApplicationRecord
-  has_many :users
-  has_many :techniques
-  has_many :coffees
+  belongs_to :user
+  belongs_to :technique
+  belongs_to :coffee
 end
