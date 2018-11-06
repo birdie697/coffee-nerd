@@ -1,96 +1,154 @@
 .breadcrumbs > * {
- font-family: 'Indie Flower', cursive;
+ font-family: 'Josefin Sans', sans-serif;
  font-size: 1em;
  padding: 1em;
 }
 
 .supportingLinks {
   background-color: #FFFFFF;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
   margin: 7%;
   border-radius: 40px;
   padding: 20px;
+  border: 10px solid #BD895D
+
 }
 
 .supportingLinks h1 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .app-name {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-.flash-notice {
+.flash {
   background-color: #BD895D;
-  font-family: 'Indie Flower', cursive;
-
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .mainPage {
   background-color: #FFFFFF;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
   border-radius: 40px;
   padding: 20px;
   width:  50%;
   margin: 10% 25%;
+  border: 10px solid #BD895D
 }
 
 .mainPage h1 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
   text-align: center;
+}
+
+.signUpInLinks h1 {
+  display: inline-block;
+  padding: 10%
 }
 
 .selectionTile {
   background-color: #FFFFFF;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
   border-radius: 40px;
   padding: 20px;
-  width:  30%;
-  margin: 5% 35%;
+  width:  50%;
+  margin: 5% 25%;
+  border: 5px solid #BD895D
+
 }
 
-
 .selectionTile h3 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
   text-align: center;
 }
 
 .selectionTile h4 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
   text-align: center;
 }
 
-.goButton {
+.goButtonContainer {
   background-color: #BD895D;
-  font-family: 'Indie Flower', cursive;
+  color:  #FFFFFF;
+  font-family: 'Josefin Sans', sans-serif;
   border-radius: 40px;
   padding: 20px;
-  width:  10%;
-  margin: 5% 45%;
+  width:  30%;
+  margin: 5% 35%;
   text-align: center;
   border: 2px solid #FFFFFF
 }
 
+.goButton {
+  background-color: #FFFFFF;
+  color:  #000000;
+  font-family: 'Josefin Sans', sans-serif;
+  border-radius: 40px;
+  padding: 20px;
+  width:  80%;
+  margin: 5% 5%;
+  text-align: center;
+  border: 2px solid #000000;
+}
+
+.goButton:hover {
+  background-color: #664233;
+  color: #FFFFFF;
+}
+
+.goButton:active {
+  background-color: #FFFFFF;
+}
+
+.centerButtons {
+  text-align: center;
+}
+
+.introductionLinks {
+  text-align: center;
+}
+
+.introductionLinksPadding {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.resultsButtons {
+  background-color: #BD895D;
+  font-family: 'Josefin Sans', sans-serif;
+  border-radius: 40px;
+  padding: 20px;
+  width:  30%;
+  margin: 5% 5%;
+  text-align: center;
+  border: 2px solid #000000;
+  display: inline-block;
+}
+
+.resultsButtons:hover {
+  background-color: #664233;
+}
+
 .devisePage {
   background-color: #FFFFFF;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
   border-radius: 40px;
   width:  50%;
   padding: 20px;
   margin-left: 25%;
   margin-right: 25%;
   margin-top: 10%;
+  border: 10px solid #BD895D
 }
 
 .devisePage h2 {
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .devisePage .emailEntry{
   font-family: sans-serif;
 }
-
-
 
 body {
   background: url(https://www.dropbox.com/s/f6rw2uqwltw31wu/Coffee-Beans-Background-Original.jpg?raw=1) no-repeat center center fixed;

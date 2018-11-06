@@ -21,6 +21,8 @@ class PreparationContainer extends React.Component {
     this.handleNewSelectedCoffee = this.handleNewSelectedCoffee.bind(this)
     this.handleNewSelectedServings = this.handleNewSelectedServings.bind(this)
     this.handlePrepFormSubmit = this.handlePrepFormSubmit.bind(this)
+    this.postToPreparation = this.postToPreparation.bind(this)
+    this.handleClear = this.handleClear.bind(this)
   }
 
   handleNewSelectedTechnique(event) {
@@ -33,6 +35,16 @@ class PreparationContainer extends React.Component {
 
   handleNewSelectedServings(event) {
     this.setState({ selectedServings: event.target.value })
+  }
+
+  handleClear(event) {
+    event.preventDefault();
+    this.setState({
+      selectedTechniqueId: '',
+      selectedCoffeeId: '',
+      selectedServings: 1,
+      resultsPayload: {}
+    })
   }
 
   handlePrepFormSubmit(event) {
@@ -65,6 +77,29 @@ class PreparationContainer extends React.Component {
       this.setState({ resultsPayload: body });
     })
     .catch(error => console.error(`Error in fetch: $(error.message)`));
+  }
+
+  postToPreparation(formPayload) {
+
+    let jsonPayload = JSON.stringify(formPayload)
+    fetch(`/api/v1/preparations`, {
+      method: 'POST',
+      body: jsonPayload,
+      headers: {
+        'Accept':  'application/json',
+        'Content-Type': 'application/json'},
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   componentDidMount(){
@@ -119,6 +154,9 @@ class PreparationContainer extends React.Component {
   }
 
   render() {
+
+    let handlePostToPreparation = (formPayload) => this.postToPreparation(formPayload)
+
     return(
       <div>
         <form onSubmit={this.handlePrepFormSubmit}>
@@ -148,9 +186,9 @@ class PreparationContainer extends React.Component {
                 handleNewSelectedServings={this.handleNewSelectedServings}
               />
           </div>
-          <div className='goButton'>
+          <div className='goButtonContainer'>
             <p>Brew Coffee</p>
-            <input type="submit" name="submit" value="Click For Results" />
+            <button className="goButton" type="submit" name="submit" value="Click For Results">Click For Results</button>
           </div>
         </form>
         <div className='selectionTile'>
@@ -165,6 +203,8 @@ class PreparationContainer extends React.Component {
             coffeeWeight={this.state.resultsPayload.coffee_weight}
             adjustedGrindSize={this.state.resultsPayload.adjusted_grind_size}
             adjustedRatio={this.state.resultsPayload.adjusted_ratio}
+            postToPreparation={handlePostToPreparation}
+            handleClear={this.handleClear}
           />
         </div>
       </div>

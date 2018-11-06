@@ -4,6 +4,7 @@
   <title>CoffeeNerd</title>
   <link href="https://fonts.googleapis.com/css?family=Cabin|Indie+Flower" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
 
@@ -16,7 +17,7 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1 class="app-name"><a href="/">Coffee Nerd</a></h1>
+        <h1 class="app-name"><a href="/users">Coffee Nerd</a></h1>
       </li>
     </ul>
 
@@ -30,7 +31,13 @@
         <%- end -%>
       </ul>
     </section>
-  </nav>
+    <div class="introductionLinks">
+      <span class="introductionLinksPadding"><%= link_to 'Why Use Coffee Nerd', nerds_path %></span>
+      <span class="introductionLinksPadding"><%= link_to 'Supported Brewing Methods', supports_path %></span>
+      <span class="introductionLinksPadding"><%= link_to 'Water Coffee Ratio', ratios_path %></span>
+      <span class="introductionLinksPadding"><%= link_to 'Coffee Bean Grind Size', grinds_path %></span>
+    </div>
+</nav>
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
