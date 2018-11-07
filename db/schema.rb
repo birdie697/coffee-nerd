@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_141523) do
+ActiveRecord::Schema.define(version: 2018_11_07_011720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_11_01_141523) do
     t.bigint "user_id"
     t.bigint "technique_id"
     t.bigint "coffee_id"
-    t.integer "servings", default: 1
+    t.decimal "servings", default: "1.0"
     t.integer "water_amount"
     t.integer "coffee_amount"
     t.float "adjusted_ratio"
