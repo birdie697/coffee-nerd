@@ -12,15 +12,11 @@ class Api::V1::PreparationsController < ApplicationController
 
     water_weight = (servings.to_i*Constants::WATER_5OZ_TO_GRAMS).round
 
-    binding.pry
-
     if Preparation.where(user_id: user_id, technique_id: technique_id, coffee_id: coffee_id).empty?
 
       adjusted_grind_size = Technique.find(technique_id).default_grind_size
       adjusted_ratio = Technique.find(technique_id).default_ratio
       coffee_weight = (water_weight/adjusted_ratio).round
-
-      binding.pry
 
     else
 
@@ -44,11 +40,7 @@ class Api::V1::PreparationsController < ApplicationController
 
       coffee_weight = (water_weight/adjusted_ratio).round
 
-      binding.pry
-
     end
-
-    binding.pry
 
     render json: {servings: servings,
                   technique_name: technique_name,
