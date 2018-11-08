@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Technique.find_or_create_by!(name: "Drip Machine", default_ratio: 17.42, default_grind_size: "Medium-Corase")
+Technique.find_or_create_by!(name: "Drip Machine", default_ratio: 17.42, default_grind_size: "Medium-Coarse")
 Technique.find_or_create_by!(name: "French Press", default_ratio: 12.0, default_grind_size: "Coarse-Medium")
 Technique.find_or_create_by!(name: "Chemex", default_ratio: 15.0, default_grind_size: "Medium-Medium")
 

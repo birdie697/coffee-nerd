@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Route, Redirect } from 'react-router'
+import { push } from 'react-router'
+import { browserHistory } from 'react-router'
 import Technique from '../components/Technique';
 import Coffee from '../components/Coffee';
 import Servings from '../components/Servings';
 import ResultsContainer from './ResultsContainer';
+import swal from '@sweetalert/with-react';
 
 class PreparationContainer extends React.Component {
   constructor(props) {
@@ -99,7 +103,18 @@ class PreparationContainer extends React.Component {
         throw(error);
       }
     })
-    .catch(error => console.error(`Error in fetch: ${error.message}`));
+    .then(response => response.json())
+    .then(body => {
+      swal({ title: body.title, text: body.text})
+      browserHistory.push(`/users`)
+    })
+    .then
+      (this.setState({ selectedTechniqueId: '',
+                      selectedCoffeeId: '',
+                      selectedServings: 1,
+                      resultsPayload: {} })
+      )
+        .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   componentDidMount(){
