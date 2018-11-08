@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_011720) do
+ActiveRecord::Schema.define(version: 2018_11_08_143347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 2018_11_07_011720) do
     t.bigint "technique_id"
     t.bigint "coffee_id"
     t.decimal "servings", default: "1.0"
-    t.integer "water_amount"
-    t.integer "coffee_amount"
-    t.float "adjusted_ratio"
+    t.integer "water_amount", null: false
+    t.integer "coffee_amount", null: false
+    t.float "adjusted_ratio", null: false
     t.string "strength", default: "good"
-    t.string "adjusted_grind_size"
+    t.string "adjusted_grind_size", null: false
     t.string "flavor", default: "good"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

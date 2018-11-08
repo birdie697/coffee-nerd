@@ -7,8 +7,10 @@ class Api::V1::PreparationsController < ApplicationController
     coffee_id = params[:coffee]
     servings = params[:servings]
 
-    technique_name = Technique.find(technique_id).name
     coffee_name = Coffee.find(coffee_id).name
+    technique_name = Technique.find(technique_id).name
+
+
 
     water_weight = (servings.to_i*Constants::WATER_5OZ_TO_GRAMS).round
 
@@ -22,22 +24,8 @@ class Api::V1::PreparationsController < ApplicationController
 
       prep = Preparation.where(user_id: user_id, coffee_id: coffee_id, technique_id: technique_id).order(created_at: :desc).limit(1)
 
-      if prep[0].flavor == "Bitter"
-        adjusted_grind_size = Constants.adjust_grind_for_bitter(prep[0].adjusted_grind_size)
-      elsif prep[0].flavor == "Underdeveloped"
-        adjusted_grind_size = Constants.adjust_grind_for_underdeveloped(prep[0].adjusted_grind_size)
-      else
-        adjusted_grind_size = prep[0].adjusted_grind_size
-      end
-
-      if prep[0].strength == "Strong"
-        adjusted_ratio = prep[0].adjusted_ratio + 0.5
-      elsif prep[0].strength == "Weak"
-        adjusted_ratio = prep[0].adjusted_ratio - 0.5
-      else
-        adjusted_ratio = prep[0].adjusted_ratio
-      end
-
+      adjusted_grind_size = Constants.get_new_grind(prep[0].flavor, prep[0].adjusted_grind_size)
+      adjusted_ratio = Constants.get_new_ratio(prep[0].strength, prep[0].adjusted_ratio)
       coffee_weight = (water_weight/adjusted_ratio).round
 
     end
@@ -56,10 +44,10 @@ class Api::V1::PreparationsController < ApplicationController
     preparation = Preparation.new(preparation_params)
 
     if preparation.save
-      flash[:notice] = "Your Coffee Experience Has Been Successfully Logged"
-      render json: preparation
+      render json: { title: "SUCCESS!", text: "Your coffee experience has been logged"}
     else
-      render json: { errors: preparation.errors.full_message }
+      #render json: { title:  "OOPS!", text: preparation.errors.full_messages.join(", ")}
+      render json: { title:  "OOPS!", text: "Please 'Click For Results' before clicking 'Save'"}
     end
 
   end
