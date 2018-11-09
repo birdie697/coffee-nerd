@@ -68,6 +68,16 @@
   text-align: center;
 }
 
+.selectionTile a {
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+}
+
+.servingsTile {
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+}
+
 .goButtonContainer {
   background-color: #BD895D;
   color:  #FFFFFF;
@@ -107,6 +117,26 @@
 
 .introductionLinks {
   text-align: center;
+}
+
+.introductionLinks a {
+  color:  #FFFFFF;
+}
+
+.nerdLink:hover a {
+  color:  #BD895D;
+}
+
+.supportsLink:hover a {
+  color:  #BD895D;
+}
+
+.ratioLink:hover a {
+  color:  #BD895D;
+}
+
+.grindLink:hover a {
+  color:  #BD895D;
 }
 
 .introductionLinksPadding {

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :techniques, only: [:index]
-      resources :coffees, only: [:index]
+      resources :coffees, only: [:index, :create]
       resources :users, only: [:index]
       resources :preparations, only: [:index, :create]
     end

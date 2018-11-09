@@ -9,9 +9,6 @@ class Api::V1::PreparationsController < ApplicationController
 
     coffee_name = Coffee.find(coffee_id).name
     technique_name = Technique.find(technique_id).name
-
-
-
     water_weight = (servings.to_i*Constants::WATER_5OZ_TO_GRAMS).round
 
     if Preparation.where(user_id: user_id, technique_id: technique_id, coffee_id: coffee_id).empty?

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Route, Redirect } from 'react-router'
-import { push } from 'react-router'
-import { browserHistory } from 'react-router'
+import { Route, Redirect } from 'react-router';
+import { push } from 'react-router';
+import { browserHistory } from 'react-router';
 import Technique from '../components/Technique';
 import Coffee from '../components/Coffee';
+import CoffeeForm from '../components/CoffeeForm';
 import Servings from '../components/Servings';
 import ResultsContainer from './ResultsContainer';
 import swal from '@sweetalert/with-react';
@@ -17,6 +18,7 @@ class PreparationContainer extends React.Component {
       coffees: [],
       selectedTechniqueId: '',
       selectedCoffeeId: '',
+      newCoffee: '',
       selectedServings: 1,
       currentUserId: '',
       resultsPayload: {}
@@ -26,7 +28,10 @@ class PreparationContainer extends React.Component {
     this.handleNewSelectedServings = this.handleNewSelectedServings.bind(this)
     this.handlePrepFormSubmit = this.handlePrepFormSubmit.bind(this)
     this.postToPreparation = this.postToPreparation.bind(this)
+    this.handleNewCoffee = this.handleNewCoffee.bind(this)
+    this.postToCoffee = this.postToCoffee.bind(this)
     this.handleClear = this.handleClear.bind(this)
+    this.handleCoffeeClear = this.handleCoffeeClear.bind(this)
   }
 
   handleNewSelectedTechnique(event) {
@@ -41,6 +46,10 @@ class PreparationContainer extends React.Component {
     this.setState({ selectedServings: event.target.value })
   }
 
+  handleNewCoffee(event) {
+    this.setState({ newCoffee: event.target.value })
+  }
+
   handleClear(event) {
     event.preventDefault();
     this.setState({
@@ -48,6 +57,13 @@ class PreparationContainer extends React.Component {
       selectedCoffeeId: '',
       selectedServings: 1,
       resultsPayload: {}
+    })
+  }
+
+  handleCoffeeClear(event) {
+    event.preventDefault();
+    this.setState({
+      newCoffee: ''
     })
   }
 
@@ -84,7 +100,6 @@ class PreparationContainer extends React.Component {
   }
 
   postToPreparation(formPayload) {
-
     let jsonPayload = JSON.stringify(formPayload)
     fetch(`/api/v1/preparations`, {
       method: 'POST',
@@ -115,6 +130,42 @@ class PreparationContainer extends React.Component {
                       resultsPayload: {} })
       )
         .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  postToCoffee(event) {
+    event.preventDefault();
+    let formPayload = { name: this.state.newCoffee }
+    let jsonPayload = JSON.stringify(formPayload)
+    fetch(`/api/v1/coffees`, {
+      method: 'POST',
+      body: jsonPayload,
+      headers: {
+        'Accept':  'application/json',
+        'Content-Type': 'application/json'},
+      credentials: 'same-origin'
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+          error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      let allCoffees = this.state.coffees
+      allCoffees.unshift( {id: body.id, name: body.name} )
+
+      this.setState({ coffees: allCoffees })
+      swal(body.title, body.text)
+      browserHistory.push(`/users`)
+    })
+    .then
+      (this.setState({ newCoffee: '' })
+      )
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   componentDidMount(){
@@ -165,7 +216,6 @@ class PreparationContainer extends React.Component {
       this.setState({ currentUserId: body.id });
     })
     .catch(error => console.error(`Error in fetch: $(error.message)`));
-
   }
 
   render() {
@@ -174,7 +224,7 @@ class PreparationContainer extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.handlePrepFormSubmit}>
+        <form id='mainForm' onSubmit={this.handlePrepFormSubmit}>
           <div className='selectionTile'>
             <h3>Pick a Technique</h3>
             <Technique
@@ -192,6 +242,7 @@ class PreparationContainer extends React.Component {
                 name="coffee"
                 handleNewSelectedCoffee={this.handleNewSelectedCoffee}
               />
+            <a href="#coffeeForm">Want to a add a new coffee?</a>
           </div>
           <div className='selectionTile'>
             <h3>Pick Your Number of Servings</h3>
@@ -221,6 +272,15 @@ class PreparationContainer extends React.Component {
             postToPreparation={handlePostToPreparation}
             handleClear={this.handleClear}
           />
+        </div>
+        <div className='selectionTile' id='coffeeForm'>
+          <CoffeeForm
+            newCoffee={this.state.newCoffee}
+            handleNewCoffee={this.handleNewCoffee}
+            handleCoffeeClear={this.handleCoffeeClear}
+            handlePostToCoffee={this.postToCoffee}
+          />
+          <a href="#mainForm">Back To Top</a>
         </div>
       </div>
     )
