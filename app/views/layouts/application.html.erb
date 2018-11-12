@@ -15,7 +15,11 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <h1 class="app-name"><a href="/users">Coffee Nerd</a></h1>
+        <%- if current_user -%>
+          <h1 class="app-name"><a href="/users">Home</a></h1>
+        <%- else -%>
+          <h1 class="app-name"><a href="/users">Coffee Nerd</a></h1>
+        <%- end -%>
       </li>
     </ul>
 
@@ -29,13 +33,14 @@
         <%- end -%>
       </ul>
     </section>
-    <div class="introductionLinks">
-      <span class="introductionLinksPadding nerdLink"><%= link_to 'Why Use Coffee Nerd', nerds_path %></span>
-      <span class="introductionLinksPadding supportsLink"><%= link_to 'Supported Brewing Methods', supports_path %></span>
-      <span class="introductionLinksPadding ratioLink"><%= link_to 'Water Coffee Ratio', ratios_path %></span>
-      <span class="introductionLinksPadding grindLink"><%= link_to 'Coffee Bean Grind Size', grinds_path %></span>
-    </div>
 </nav>
+<div class="introductionLinks">
+  <span class="introductionLinksPadding nerdLink"><%= link_to 'Why Use Coffee Nerd', nerds_path %></span>
+  <span class="introductionLinksPadding supportsLink"><%= link_to 'Supported Brewing Techniques', supports_path %></span>
+  <span class="introductionLinksPadding ratioLink"><%= link_to 'Water Coffee Ratio', ratios_path %></span>
+  <span class="introductionLinksPadding grindLink"><%= link_to 'Coffee Bean Grind Size', grinds_path %></span>
+</div>
+
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
@@ -56,4 +61,5 @@
 
   <%= yield :extra_footer %>
 </body>
+  <%= render "layouts/footer" %>
 </html>
