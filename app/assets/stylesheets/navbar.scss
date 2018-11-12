@@ -116,6 +116,7 @@
 }
 
 .introductionLinks {
+  background-color: #333333;
   text-align: center;
 }
 
@@ -185,8 +186,40 @@
 }
 
 body {
-  background: url(https://www.dropbox.com/s/f6rw2uqwltw31wu/Coffee-Beans-Background-Original.jpg?raw=1) no-repeat center center fixed;
+  background: url('/Coffee-Beans-Background.jpg') no-repeat center center fixed;
   background-position: center;
   background-size: cover;
   background-blend-mode: lighten;
+}
+
+.supportingLinks .fitPicture {
+    width: 50%;
+}
+
+.supportingLink .topLine {
+  font-size: 2em;
+  font-weight: 900;
+}
+
+.textNextToPicture {
+  display: inline-block;
+  width: 48%;
+  float: right;
+}
+
+.footer a {
+    margin-top: 10rem;
+    margin-bottom: 0rem;
+    margin-left: 0rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+}
+
+.footer:hover a {
+  color:  #BD895D;
 }

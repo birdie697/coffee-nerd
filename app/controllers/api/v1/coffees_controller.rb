@@ -15,7 +15,7 @@ class Api::V1::CoffeesController < ApplicationController
 
     else
       #render json: { title:  "OOPS!", text: coffee.errors.full_messages.join(", ") }
-      render json: { title:  "OOPS!", text: "Please submit a coffee name" }
+      render json: { title:  "OOPS!", text: "Please submit a unique, non-blank coffee name" }
     end
 
   end

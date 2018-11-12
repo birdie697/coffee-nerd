@@ -19,6 +19,7 @@ resources :nerds, only: [:index]
 resources :supports, only: [:index]
 resources :ratios, only: [:index]
 resources :grinds, only: [:index]
+resources :credits, only: [:index]
 
 get '*path', to: 'users#index'
 
