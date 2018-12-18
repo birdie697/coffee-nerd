@@ -183,7 +183,7 @@ class PreparationContainer extends React.Component {
     .then(body => {
       this.setState({ techniques: body });
     })
-    .catch(error => console.error(`Error in fetch: $(error.message)`));
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
 
     fetch('/api/v1/coffees')
     .then(response => {
@@ -199,7 +199,7 @@ class PreparationContainer extends React.Component {
     .then(body => {
       this.setState({ coffees: body });
     })
-    .catch(error => console.error(`Error in fetch: $(error.message)`));
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
 
     fetch('/api/v1/users')
     .then(response => {
@@ -215,7 +215,7 @@ class PreparationContainer extends React.Component {
     .then(body => {
       this.setState({ currentUserId: body.id });
     })
-    .catch(error => console.error(`Error in fetch: $(error.message)`));
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render() {
