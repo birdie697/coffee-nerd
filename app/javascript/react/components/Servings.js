@@ -3,14 +3,16 @@ import React from 'react';
 const Servings = props => {
 
 
-  let servings = []
+  let servings = [];
 
-  for (let i=1; i<=5; i+= 0.5) {
-    servings.push(<option className='servingsTile' key={i} value={i}>{i}</option>);
+  servings.push(<option className='servingsTile' key="1" value="1">1 serving - 5 fluid ounces</option>);
+
+  for (let i=1.5; i<=5; i+= 0.5) {
+    servings.push(<option className='servingsTile' key={i} value={i}>{i} servings - {i*5} fluid ounces</option>);
   }
 
   for (let i=6; i<=14; i++) {
-    servings.push(<option className='servingsTile' key={i} value={i}>{i}</option>);
+    servings.push(<option className='servingsTile' key={i} value={i}>{i} servings  - {i*5} fluid ounces</option>);
   }
 
   return(

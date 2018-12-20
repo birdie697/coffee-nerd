@@ -45,8 +45,8 @@ class ResultsContainer extends React.Component {
       <div>
         <form onSubmit={this.handleResultsFormSubmit}>
           <h3>Here Are The Results</h3>
-          <h4>UserId: {this.props.currentUserId}</h4>
           <h4>Servings: {this.props.servings}</h4>
+          <h4>Fluid Ounces: {this.props.servings*5}</h4>
           <h4>Technique: {this.props.techniqueName}</h4>
           <h4>Coffee: {this.props.coffeeName}</h4>
           <h4>Water (in grams): {this.props.waterWeight}</h4>
