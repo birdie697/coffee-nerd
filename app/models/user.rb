@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 has_many :preparations
+has_many :usercoffees
+has_many :coffees, through: :usercoffees
 end
