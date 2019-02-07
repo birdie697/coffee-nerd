@@ -14,8 +14,8 @@ class User < ApplicationRecord
   private
     def load_generic_coffees
       newest_user = User.order(created_at: :desc).limit(1).pluck(:id)[0]
-      Usercoffee.create(user_id: newest_user, coffee_id: Coffee.where(name: "Generic Light Roast").pluck(:id)[0])
-      Usercoffee.create(user_id: newest_user, coffee_id: Coffee.where(name: "Generic Medium Roast").pluck(:id)[0])
-      Usercoffee.create(user_id: newest_user, coffee_id: Coffee.where(name: "Generic Dark Roast").pluck(:id)[0])
+      Usercoffee.create(user_id: newest_user, coffee: Coffee.find_by(name: "Generic Light Roast"))
+      Usercoffee.create(user_id: newest_user, coffee: Coffee.find_by(name: "Generic Medium Roast"))
+      Usercoffee.create(user_id: newest_user, coffee: Coffee.find_by(name: "Generic Dark Roast"))
     end
 end
